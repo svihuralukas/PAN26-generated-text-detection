@@ -250,15 +250,24 @@ class Pipeline:
 
 def main():
     if len(sys.argv) == 3:
-        input_file = sys.argv[1]
+        input_path = sys.argv[1]
         output_dir = sys.argv[2]
     else:
-        input_file = os.environ.get("inputDataset", "")
+        input_path = os.environ.get("inputDataset", "")
         output_dir = os.environ.get("outputDir", "")
-    
-    if not input_file or not output_dir:
-        print(f"Usage: {sys.argv[0]} <input.jsonl> <output_dir>")
-        print("Or set env vars: inputDataset, outputDir")
+
+    if not input_path or not output_dir:
+        print(f"Usage: {sys.argv[0]} <input> <output_dir>")
+        sys.exit(1)
+
+    # TIRA passes a directory — find dataset.jsonl inside it
+    if os.path.isdir(input_path):
+        input_file = os.path.join(input_path, "dataset.jsonl")
+    else:
+        input_file = input_path
+
+    if not os.path.exists(input_file):
+        print(f"Input file not found: {input_file}")
         sys.exit(1)
 
     os.makedirs(output_dir, exist_ok=True)
