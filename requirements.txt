@@ -1,5 +1,4 @@
-torch==2.4.0
-transformers==4.47.1
+transformers==4.48.0
 xgboost>=2.0
 scikit-learn>=1.4
 joblib
