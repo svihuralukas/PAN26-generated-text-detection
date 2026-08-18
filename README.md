@@ -28,8 +28,10 @@ train_*.py           Training scripts
 
 ## Method
 
-Each transformer outputs a probability of AI-generated text. These scores are combined with 17 statistical features into a 20-dimensional feature vector, which is processed by an XGBoost meta-classifier to produce the final prediction. A confidence-based rejection mechanism abstains on highly uncertain samples. fileciteturn0file0
+Each transformer outputs a probability of AI-generated text. These scores are combined with 17 statistical features into a 20-dimensional feature vector, which is processed by an XGBoost meta-classifier to produce the final prediction. A confidence-based rejection mechanism abstains on highly uncertain samples.
 
 ## Citation
 
-If you use this repository, please cite the accompanying PAN 2026 system description.
+## Citation
+
+Švihura, L. (2026). *Team original at PAN 2026: Ensemble Detection of AI-Generated Text via Transformer Scorers and Statistical Features*. Notebook for the PAN Lab at CLEF 2026.
